@@ -1,0 +1,21 @@
+const vscode = require('vscode');
+
+const ART = String.raw`
+  /\_/\
+ ( o.o )
+  > ^ <
+`;
+
+function activate() {
+  const panel = vscode.window.createWebviewPanel(
+    'asciiWelcome', 'Welcome', vscode.ViewColumn.One, {}
+  );
+  panel.webview.html = `
+    <html>
+      <body style="display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+        <pre style="font-size:18px;line-height:1.1;">${ART}</pre>
+      </body>
+    </html>`;
+}
+
+module.exports = { activate };
